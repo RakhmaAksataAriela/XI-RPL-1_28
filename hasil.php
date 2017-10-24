@@ -15,6 +15,17 @@ $email=$_GET['email'];
 $fullname=$_GET['fullname'];
 $user=$_GET['user'];
 $pw=$_GET['pw'];
+if($fullname)
+
+{
+	$koneksi=mysqli_connect($host, $user, $pass);
+	mysqli_select_db ($koneksi, 'dblogin');
+	$sql="insert into tinstagram values('$email', '$fullname', 'user', '$pw')";
+}
+if ($koneksi->connect_errno) {
+	echo "Gagal mengoneksikan ke server";
+}
+
 ?>
 
 <div id="container">
